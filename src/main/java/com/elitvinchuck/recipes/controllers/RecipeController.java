@@ -7,6 +7,10 @@ import com.elitvinchuck.recipes.repositories.RecipeRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.web.SortDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,6 +40,16 @@ public class RecipeController {
         }
         LOGGER.error("GET: " + RecipeConstants.RECIPE_NOT_FOUND_FOR_ID_STRING + id);
         throw new RecipeNotFoundException(RecipeConstants.RECIPE_NOT_FOUND_FOR_ID_STRING + id);
+    }
+
+    @GetMapping("/page")
+    public Page<Recipe> getRecipePaginated(
+            @SortDefault.SortDefaults({
+                    @SortDefault(sort = "name", direction = Sort.Direction.DESC),
+                    @SortDefault(sort = "id", direction = Sort.Direction.ASC)
+            })
+            Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @PostMapping("/new")
