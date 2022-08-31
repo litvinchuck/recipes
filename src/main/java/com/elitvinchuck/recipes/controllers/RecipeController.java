@@ -49,6 +49,7 @@ public class RecipeController {
                     @SortDefault(sort = "id", direction = Sort.Direction.ASC)
             })
             Pageable pageable) {
+        LOGGER.info(RecipeConstants.GET_PAGING_SUCCESS_STRING + pageable);
         return repository.findAll(pageable);
     }
 
