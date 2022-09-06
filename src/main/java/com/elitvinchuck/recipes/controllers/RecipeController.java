@@ -19,7 +19,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("recipe")
+@RequestMapping("api/recipe")
 public class RecipeController {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RecipeController.class);
