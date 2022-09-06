@@ -52,7 +52,7 @@ public class RecipeController {
             })
             Pageable pageable,
             @RequestParam(required = false) String category) {
-        if (!category.equals("")) {
+        if (category != null) {
             LOGGER.info(String.format(RecipeConstants.GET_PAGING_BY_CATEGORY_SUCCESS_STRING, category, pageable));
             return repository.findByCategory(category, pageable);
         }
