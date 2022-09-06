@@ -6,7 +6,11 @@ public interface RecipeConstants {
 
     String GET_PAGING_SUCCESS_STRING = "GET page: ";
 
+    String GET_PAGING_BY_CATEGORY_SUCCESS_STRING = "GET page (category: %s): %s";
+
     String POST_RECIPE_SUCCESS_STRING = "POST recipe: ";
+
+    String PUT_RECIPE_SUCCESS_STRING = "PUT recipe: ";
 
     String RECIPE_NOT_FOUND_FOR_ID_STRING = "Recipe not found for id=";
 

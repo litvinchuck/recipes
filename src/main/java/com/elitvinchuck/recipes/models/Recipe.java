@@ -43,8 +43,11 @@ public class Recipe {
             joinColumns = @JoinColumn(name = "recipe_id"))
     private Set<String> directions = new HashSet<>();
 
-    @NotNull
     @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate date;
+
+    public void setDateToNow() {
+        date = LocalDate.now();
+    }
 
 }
